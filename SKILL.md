@@ -1,5 +1,5 @@
 ---
-name: MarketAnalysis-FormatAiAgent
+name: MarketAnalysis-FormatChatAiAgent
 description: Market analysis format standard - Astronacci + Fibonacci + Fear & Greed, universal for XAUUSD/BTC/forex/index
 ---
 
@@ -59,12 +59,12 @@ When user says "analisa xauusd", "analisa btc", "analisa eurusd", or similar:
 ## Installation
 
 ```
-hermes skills install https://raw.githubusercontent.com/Mftrferdinand/MarketAnalysis-FormatAiAgent/main/SKILL.md
+hermes skills install https://raw.githubusercontent.com/Mftrferdinand/MarketAnalysis-FormatChatAiAgent/main/SKILL.md
 ```
 
 Or clone into `~/.hermes/skills/`:
 ```
-git clone https://github.com/Mftrferdinand/MarketAnalysis-FormatAiAgent ~/.hermes/skills/research/MarketAnalysis-FormatAiAgent
+git clone https://github.com/Mftrferdinand/MarketAnalysis-FormatChatAiAgent ~/.hermes/skills/research/MarketAnalysis-FormatChatAiAgent
 ```
 
 ## Output Format
