@@ -1,3 +1,8 @@
+---
+name: xauusd-aes
+description: XAUUSD market analysis format by @mftrferdinand - Astronacci + Fibonacci, standard Hermes skill
+---
+
 # XAUUSD Market Analysis Format — AES
 
 XAUUSD analysis format dengan standard Astronacci + Fibonacci. Bisa dipake buat pair lain juga. Author: @mftrferdinand.
