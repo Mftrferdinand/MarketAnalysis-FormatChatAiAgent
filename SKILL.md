@@ -1,6 +1,6 @@
 ---
 name: MarketAnalysis-FormatChatAiAgent
-description: Market analysis format standard - Astronacci + Fibonacci + Fear & Greed, universal for XAUUSD/BTC/forex/index
+description: Full market analysis with Astronacci + Fibonacci, structured live chat format, consistent entries with tight risk management (TP/SL), and historical tracking.
 ---
 
 # Market Analysis Format — AI Agent
@@ -19,7 +19,7 @@ This format has been through 20+ iterations and the user gets FURIOUS every time
 8. Never send over-formatted output (code block in entry area, etc.)
 9. Applies to ALL pairs (XAUUSD, BTC, EURUSD, etc.)
 
-Market analysis format using Astronacci + Fibonacci standard. Works for any pair.
+Complete market analysis package: fundamental macro analysis, technical Fibonacci + Astronacci wave structure, structured price action breakdown, consistent entry zones with fixed RR targets, and detailed risk management. Works for XAUUSD, BTC, forex, indices — any asset.
 
 ## Agent Persona
 
@@ -148,6 +148,7 @@ Entry Sell M15 : Running
 - `SL` = Stop loss hit directly
 - `Running` = entry hit, position still open
 - `Waiting Order` = entry not yet triggered
+- `Waiting Order (Analyst1)` = entry from Analyst1 still waiting
 
 ### RR Ratio (M15 Only)
 
@@ -158,6 +159,20 @@ Entry Sell M15 : Running
 - TP3: 500 pips (1:5)
 - TP4: 1000 pips (1:10)
 - Mid entry = (low + high) / 2
+- **Consistency rule:** NEVER deviate from these RR ratios. Entry, SL, and TP distances are fixed regardless of market noise. This ensures disciplined risk management across all analysts.
+
+### Mid Entry Formula
+
+Mid entry = (entry_low + entry_high) / 2
+
+Example: Entry 4,030 - 4,033
+Mid = (4,030 + 4,033) / 2 = 4,031.5
+
+SL = Mid - 100 pips (for buy) or Mid + 100 pips (for sell)
+TP1 = Mid ± 100 pips
+TP2 = Mid ± 200 pips
+TP3 = Mid ± 500 pips
+TP4 = Mid ± 1000 pips
 
 ## SL Status Variations
 
@@ -192,19 +207,38 @@ Entry Sell M15 : Running
 - Entries not yet hit → **Waiting, Sell/Buy Area** (plain text format)
 - Only create a new analysis if the user ASKS for it
 
+### Running Entry Tracking
+
+- Running entries must track: Entry hit, which TPs are hit/running, SL status
+- Trade Update format: **XAUUSD Live Trade Update** with code block showing current status
+- Update timestamp in WIB
+- Include distance remaining to next TP and current SL from price
+
 ### Fundamental Section
 
 - MUST fetch news from news scraper first
 - 2-3 sentences: inflation, interest rates, geopolitics, NFP/CPI/FOMC
 - Source links embedded in text
 - MUST include Fear & Greed Index
+- Mention upcoming catalysts (FOMC, NFP, CPI) when relevant
+
+### Technical Section
+
+- Fibonacci levels from swing high 30d to swing low 30d
+- SMA20 (20-day moving average) as dynamic resistance/support
+- BB Lower as extreme support
+- RSI reading and interpretation
+- Volume analysis
+- Astronacci/Elliott Wave structure context
 
 ### Entry Area
 
 - Entry range: 30 pips
-- SL: 100 pips from mid entry
+- SL: 100 pips from mid entry (DO NOT change regardless of volatility)
 - TP1: 100 (1:1), TP2: 200 (1:2), TP3: 500 (1:5), TP4: 1000 (1:10)
 - Find nearest support/resistance zones from current price
+- Mid entry = (entry_low + entry_high) / 2
+- Never widen SL or compress TP. These are fixed risk parameters.
 
 ### History Data in Output
 
@@ -212,6 +246,65 @@ Entry Sell M15 : Running
 - Previous days' data only if user requests
 - Waiting Order MUST still be shown
 - If only Waiting Order exists, History Data section MUST still appear
+- Each analyst line shows the result: Waiting Order, TP2 : 200 Pips, SL, etc.
+
+### Price Movement Analysis
+
+- Cover last 6 hours of price action
+- Include M15/1H/4H context
+- Astronacci wave analysis: identify impulse vs corrective waves
+- Nearest support/resistance levels
+- Narrative format, not bullet points
+
+## Price Movement Analysis Guidelines
+
+### Wave Structure (Astronacci / Elliott Wave)
+
+- **Impulse waves** (trend direction): Waves 1-2-3-4-5. Higher TF targets tend to hit TP4 (1000 pips).
+- **Corrective waves** (retracement): Waves A-B-C, W-X-Y. Lower TF targets, typically TP1-TP2 (100-200 pips).
+- Wave 3 is usually the strongest and longest — use Fibonacci extension for TP targets.
+- Wave 5 often ends with RSI divergence — reversal signal.
+
+### Entry Zone Placement
+
+- **Sell zone:** Place above resistance (Fib 38.2%-61.8%, SMA20, swing high, previous HH)
+- **Buy zone:** Place below support (Fib 61.8%-78.6%, previous LL, swing low, BB Lower)
+- Entry range always 30 pips to avoid slippage and ensure fill probability
+- If price is between support and resistance with no clear zone — skip entry, mark "Waiting Order"
+- New entries wait until active entries hit TP2 or stop out
+
+## Risk Management Walkthrough
+
+### Per-Trade Risk Parameters
+
+- **Max risk per trade:** 100 pips (fixed SL distance from mid entry)
+- **RR structure:**
+  - TP1 (100 pips) = 1:1 — partial close or trail SL to breakeven
+  - TP2 (200 pips) = 1:2 — partial close, move SL to entry or TP1
+  - TP3 (500 pips) = 1:5 — runner
+  - TP4 (1000 pips) = 1:10 — full runner
+- **Never deviate** from these levels. The RR structure is the core of the system.
+
+### Scaling Rules
+
+- **TP1 hit:** close 30-50% of position, move SL on remaining to entry or breakeven
+- **TP2 hit:** close another 30%, move SL to TP1 area
+- **TP3 and TP4:** let remainders run with trailing or fixed SL
+- This ensures: breakeven after TP1, profit locked after TP2
+
+### Risk of Ruin Prevention
+
+- TP1 (1:1) ensures that even 50% win rate is profitable over time
+- TP2 (1:2) makes 40% win rate profitable
+- Fixed SL prevents emotional over-leverage
+- Consistent entry size = consistent risk profile
+
+## Trade Psychology Notes
+
+- Trust the system. TP structures are mathematically designed for profit at >33% win rate.
+- If entries stop out 2-3 times in a row, reduce size, don't change RR.
+- Revenge trading = widening SL or moving entries early. DO NOT do this.
+- If an entry is skipped (Waiting Order), do not force it. Market will give another opportunity.
 
 ## Data Sources
 
@@ -219,6 +312,7 @@ Entry Sell M15 : Running
 - Gold futures: Yahoo Finance GC=F
 - Fear & Greed: alternative.me
 - News: Google News RSS
+- Economic calendar: Investing.com / ForexFactory
 
 ## Skill Overlap
 
