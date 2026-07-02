@@ -2,6 +2,8 @@
 
 Below is a complete example of the output format. Every analysis MUST follow this structure exactly.
 
+This is the FINAL format — markdown with bold titles, code blocks for table and history, embedded links, ✷/✧ symbols for entries.
+
 ---
 
 **XAUUSD - $3,985 Live Analyst1**

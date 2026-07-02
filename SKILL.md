@@ -1,15 +1,15 @@
 ---
-name: MarketAnalysis-FormatChatAiAgent
-description: Full market analysis with Astronacci + Fibonacci, structured live chat format, consistent entries with tight risk management (TP/SL), and historical tracking. For all markets.
+name: MarketAnalysis
+description: "Format chat AI agent untuk analisis market lengkap dan akurat. Astronacci + Fibonacci, structured live chat format, consistent entries with tight risk management (TP/SL). Companion: TradeDataTracker for TP/SL logging. For all markets."
 ---
 
 # Market Analysis Format — AI Agent
 
-## CRITICAL: ABSOLUTE FORMAT — DO NOT IMPROVISE
+## CRITICAL: MARKDOWN FORMAT — FINAL
 
 This format has been through 20+ iterations. READ THIS BEFORE ANY OUTPUT:
 
-1. **Bold `** **`** for: main title, all section titles
+1. **Bold `** **`** for: main title, date line, all section titles
 2. **Code block ` ``` `** for: technical table, history data — nothing else
 3. **Plain text** for: Fundamental paragraph, Price Movement, Waiting Sell/Buy Area, Mirroring Assistant Intraday
 4. **Links MUST be embedded** in the Fundamental text using `[text](link)` — never put links separately at the end
@@ -71,19 +71,27 @@ History data label mengikuti analyst number:
 - Entries not yet hit → **Waiting, Sell/Buy Area** (plain text format)
 - Only create a new analysis if the user ASKS for it
 
-### Running Entry Handling
+### When to Create New Analysis
 
-**When there is a running position:** the output must have BOTH:
-1. **Mirroring Running Area** (code block) — shows current running entries with Hit/Running/Safe status
-2. **Mirroring Waiting Area** (plain text) — shows new waiting entries that haven't been triggered
+- First analysis of the day = lanjutan dari analyst number terakhir yang KE ORDER
+- **Do NOT** create a new analysis before the current entry hits **TP2** or **SL**. Unless user explicitly asks.
+- Each subsequent analysis increments the number: Analyst1, Analyst2, Analyst3, etc. (berlanjut antar hari)
+- Entries still running (TP3/TP4) must NOT be removed — move to **Mirroring Running Area** (code block format)
+- Entries not yet hit → **Waiting, Sell/Buy Area** (plain text format)
+- Only create a new analysis if the user ASKS for it
 
-**When there is NO running position:**
-- **Waiting, Sell Area** (plain text) — new sell entries
-- **Waiting, Buy Area** (plain text) — new buy entries
+### Running Entry Tracking
 
-## Output Format
+- Running entries must track: Entry hit, which TPs are hit/running, SL status
+- Trade Update format: **XAUUSD Live Trade Update** with code block showing current status
+- Update timestamp in WIB
+- Include distance remaining to next TP and current SL from price
 
-### Full Template (XAUUSD) — EXACT Output Example
+### Output Format (Markdown)
+
+Use markdown for EVERYTHING. Bold titles, code blocks for table and history, embedded links, ✷/✧ symbols for entries.
+
+Full Template (XAUUSD) — EXACT Output Example
 
 **XAUUSD - $3,985 Live Analyst1**
 **1 July 2026, 09:52 WIB**
@@ -160,9 +168,9 @@ Entry Sell M15 : Running
 - `Running` = entry hit, position still open
 - `Waiting Order` = entry not yet triggered
 
-### History Data Format
+### History Data Format (Code Block)
 
-- NO title header — code block appears directly after Mirroring Assistant Intraday
+- No title header — code block appears directly after Mirroring Assistant Intraday
 - First line: `XAUUSD, DD MONTH YYYY`
 - Second line: `✷ A[N] : [result]` where N = analyst number (berlanjut antar hari)
 - A1 = Analysis 1, A2 = Analysis 2, A3 = Analysis 3...
@@ -203,14 +211,12 @@ TP4 = Mid ± 1000 pips
 - `All Good :p` : All TPs hit
 - `Sorry, SL Hit` : Direct SL hit
 
-## Mandatory Rules
-
 ### Markdown Rules
 
 - **ALL titles** and **section titles** use bold markdown `** **`
 - **Technical table** and **History Data** use code block ` ``` `
 - **Fundamental** — news links embedded in text using `[text](link)`
-- **Waiting, Sell/Buy Area** — plain text, DO NOT put in code block
+- **Waiting, Sell/Buy Area** — plain text, DO NOT put in code block. Use ✷ for SELL, ✧ for BUY
 - **Mirroring Assistant Intraday** — plain text
 - **History Data** — code block directly, NO title header before it
 - **NO blank line** between technical table code block closing ``` and RSI line
@@ -221,22 +227,6 @@ TP4 = Mid ± 1000 pips
 - **DATE, TIME WIB** (bold second line)
 - Date format: DD MONTH YYYY, 24HR WIB
 - Analysis number increments: Analyst1, Analyst2, Analyst3, etc. (berlanjut, tidak reset per hari)
-
-### When to Create New Analysis
-
-- First analysis of the day = lanjutan dari analyst number terakhir yang KE ORDER
-- **Do NOT** create a new analysis before the current entry hits **TP2** or **SL**. Unless user explicitly asks.
-- Each subsequent analysis increments the number: Analyst1, Analyst2, Analyst3, etc.
-- Entries still running (TP3/TP4) must NOT be removed — move to **Mirroring Running Area** (code block format)
-- Entries not yet hit → **Waiting, Sell/Buy Area** (plain text format)
-- Only create a new analysis if the user ASKS for it
-
-### Running Entry Tracking
-
-- Running entries must track: Entry hit, which TPs are hit/running, SL status
-- Trade Update format: **XAUUSD Live Trade Update** with code block showing current status
-- Update timestamp in WIB
-- Include distance remaining to next TP and current SL from price
 
 ### Fundamental Section
 
@@ -333,3 +323,7 @@ TP4 = Mid ± 1000 pips
 
 - `research/market-research` (SUPERSEDED) — do not use.
 - Old `market-ecosystem` skill — already merged. Do not use.
+
+## Companion Skill
+
+[TradeDataTracker](https://github.com/Mftrferdinand/TradeDataTracker) — Records every TP/SL result from signals generated by this MarketAnalysis format. Together they form a complete AI chat agent workflow: analysis → execution → data logging.
