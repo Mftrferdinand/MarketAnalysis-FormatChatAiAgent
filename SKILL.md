@@ -9,18 +9,21 @@ description: "Format chat AI agent untuk analisis market lengkap dan akurat. Ast
 
 This format has been through 20+ iterations. READ THIS BEFORE ANY OUTPUT:
 
-1. **Bold `** **`** for: main title, date line, all section titles
-2. **Code block ` ``` `** for: technical table, history data — nothing else
-3. **Plain text** for: Fundamental paragraph, Price Movement, Waiting Sell/Buy Area, Assistant Intraday Outlook
-4. **Links MUST be embedded** in the Fundamental text using `[text](link)` — never put links separately at the end
-5. **History Data MUST appear** even if it's just Waiting Order — NO title header, just code block directly
+1. **Bold `** **`** for: main title, all section titles, entry area title lines
+2. **Code block ` ``` `** for: technical table and footer — nothing else
+3. **Plain text** for: Fundamental paragraph, Price Movement, Outlook, TP/SL lines inside entry area
+4. **Links MUST be embedded** in the Fundamental text using `[text](link)` — minimal 3-4 links per analysis. Never put links separately at the end.
+5. **Footer code block** — selalu muncul di akhir. Format: `PROTECT YOUR CAPITAL, MANAGE YOUR RISK, USE SL, AIM FOR REALISTIC TP` — tanpa header, tanpa tanggal, tanpa analyst number.
 6. Never send plain text output (without bold / without code block)
 7. Never send over-formatted output (code block in entry area, etc.)
 8. Applies to ALL pairs (XAUUSD, BTC, EURUSD, etc.)
-9. DO NOT use M15/H4/D1 Mirroring Assistant format. Use ONLY: Waiting Sell Area, Waiting Buy Area, Assistant Intraday Outlook.
-10. NO blank line between technical table code block and RSI line — they must be adjacent
-11. **Assistant Intraday Outlook MUST use observational/descriptive language only** — NEVER use directive language (no "buy", "sell", "entry sekarang", "wait for trigger", "take profit", etc.). Frame everything as conditions, zones, and scenarios. See "Assistant Intraday Outlook Language Rules" section for details.
-12. **Narrative sections MUST use Bahasa Indonesia** — Fundamental Economic Global, Price Movement Analysis, and Assistant Intraday Outlook are reader-facing and must be in Indonesian. Technical terms (RSI, Fib, support, resistance, SMA, BB) and structural labels remain in English.
+9. **Section order**: Title → Fundamental → Technical → RSI/Volume → Price Movement → **Assistant Intraday Outlook** → Waiting Sell Area → Waiting Buy Area → Footer code block
+10. NO blank line between technical table code block closing ``` and RSI line
+11. **Assistant Intraday Outlook MUST use observational/descriptive language only** — NEVER use directive language. See "Assistant Intraday Outlook Language Rules" section for details.
+12. **Narrative sections MUST use Bahasa Indonesia** — Fundamental, Price Movement, and Outlook. Technical terms (RSI, Fib, support, resistance, SMA, BB) remain in English.
+13. **Fundamental Section WAJIB memiliki 3-4 link berita yang ter-embed** — jangan lupa! User akan komplain jika link kurang. Ambil dari Google News RSS, cross-check dengan Forex Factory calendar.
+14. **RSI dan Volume** — masing-masing 1 baris langsung di bawah code block (no blank line). RSI: sebut angka + status + 1 short interpretation. Volume: sebut kondisi + 1 short interpretation.
+15. **Entry Area** — bold title line contains the range (e.g. `**Waiting, Sell Area 4,030 - 4,033**`). TP1-TP4 and SL listed below with ✷ prefix. No ✧ — use ✷ for both sell and buy.
 
 Complete market analysis package: fundamental macro analysis, technical Fibonacci + Astronacci wave structure, structured price action breakdown, consistent entry zones with fixed RR targets, and detailed risk management. Works for XAUUSD, BTC, forex, indices — any asset.
 
@@ -73,15 +76,6 @@ History data label mengikuti analyst number:
 - Entries not yet hit → **Waiting, Sell/Buy Area** (plain text format)
 - Only create a new analysis if the user ASKS for it
 
-### When to Create New Analysis
-
-- First analysis of the day = lanjutan dari analyst number terakhir yang KE ORDER
-- **Do NOT** create a new analysis before the current entry hits **TP2** or **SL**. Unless user explicitly asks.
-- Each subsequent analysis increments the number: Analyst1, Analyst2, Analyst3, etc. (berlanjut antar hari)
-- Entries still running (TP3/TP4) must NOT be removed — move to **Mirroring Running Area** (code block format)
-- Entries not yet hit → **Waiting, Sell/Buy Area** (plain text format)
-- Only create a new analysis if the user ASKS for it
-
 ### Running Entry Tracking
 
 - Running entries must track: Entry hit, which TPs are hit/running, SL status
@@ -89,98 +83,77 @@ History data label mengikuti analyst number:
 - Update timestamp in WIB
 - Include distance remaining to next TP and current SL from price
 
-### Output Format (Markdown)
+### Section Order (icibos confirmed 3 Jul 2026 — FINAL)
 
-Use markdown for EVERYTHING. Bold titles, code blocks for table and history, embedded links, ✷/✧ symbols for entries.
+Title → Fundamental → Technical → RSI/Volume → Price Movement → **Assistant Intraday Outlook** → Waiting Sell Area → Waiting Buy Area → Footer code block
 
-Full Template (XAUUSD) — EXACT Output Example
+Rules confirmed by icibos:
+- **Assistant Intraday Outlook MUST be ABOVE Waiting Sell/Buy Area** (not below)
+- Footer code block is the LAST element — contains `PROTECT YOUR CAPITAL, MANAGE YOUR RISK, USE SL, AIM FOR REALISTIC TP`
+- No history data section, no analyst number, no date in footer
+- RSI and Volume line directly below code block, each on its own line, ends with period
+- RSI format: `RSI XX.X — [status], [1-liner interpretation]`
+- Volume format: `Volume — [interpretation]`
+- No blank line between RSI and Volume line
 
-**XAUUSD - $3,985 Live Analyst1**
-**1 July 2026, 09:52 WIB**
+Full Template (XAUUSD) — EXACT Output Example (icibos format v3 Jul 2026 — FINAL)
+
+**XAUUSD Research and Analysis**
+$4,178 : 03/07/26, 13:15 WIB
 
 **Fundamental Economic Global**
-Emas turun ke $3,985 setelah gagal bertahan di atas $4,000. [Sikap hawkish The Fed](https://news.google.com/articles/...) masih menjadi tekanan utama, dengan ekspektasi kenaikan suku bunga yang meningkat pasca data inflasi yang lebih tinggi dari perkiraan.
+Emas melanjutkan reli ke $4,178 setelah data [NFP AS yang lemah](link1) di 114K vs 172K ekspektasi, melemahkan dolar. [Fed Chair Warsh](link2) mengindikasikan risiko inflasi telah mereda, narasi dovish menguat. [ISM Manufacturing](link3) melunak ke 53.8 dan [gold acceptance di atas $4,000](link4) setelah data lemah.
 
 **Technical Market Analysis**
-Price $3,985 below SMA20 ($4,221) and Fib 78.6% ($4,097) — bearish.
+Price $4,178 tepat di atas SMA20 ($4,171) — menguji resistance dinamis.
 
 ```
 Level                    Price
-Swing High 30d           $4,591
-SMA20                    $4,221
+Swing High 30d           $4,510
+SMA20                    $4,171
+Current Price            $4,178
+Fib 61.8%                $4,203
 Fib 78.6%                $4,097
-Current Price            $3,985
-Swing Low 30d            $3,955
-BB Lower                 $3,906
+Swing Low 30d            $3,962
+BB Lower                 $3,932
 ```
-RSI 36.5 — Bearish
-Volume — Normal
+RSI 42.0 — area netral, meninggalkan zona oversold, momentum pemulihan masih berlanjut
+Volume — lonjakan di sesi NFP menandakan partisipasi pasar tinggi, konfirmasi validitas breakout
 
 **Price Movement Analysis**
-Harga turun dari $4,047 ke $3,985 — gagal bertahan di atas level psikologis $4,000. Astronacci Wave 3 down, saat ini menguji intraday swing low di $3,983. Jika breakdown, target $3,955 (Wave 5). Potensi bounce ke $4,030 jika support bertahan.
-
-**Waiting, Sell Area**
-✷ ENTRY SELL : 4,030 - 4,033
-✷ TAKE PROFIT 1 : 4,021
-✷ TAKE PROFIT 2 : 4,011
-✷ TAKE PROFIT 3 : 3,981
-✷ TAKE PROFIT 4 : 3,931
-✷ STOP LOSS : 4,041
-
-**Waiting, Buy Area**
-✧ ENTRY BUY : 3,982 - 3,985
-✧ TAKE PROFIT 1 : 3,993
-✧ TAKE PROFIT 2 : 4,003
-✧ TAKE PROFIT 3 : 4,033
-✧ TAKE PROFIT 4 : 4,083
-✧ STOP LOSS : 3,973
+Harga rebound dari $4,062 ke $4,178 setelah NFP yang lemah. Astronacci Wave 4 corrective berpotensi lanjut ke Fib 61.8% jika momentum bertahan. Support intraday $4,130.
 
 **Assistant Intraday Outlook**
-Bias bearish dominan. Harga di swing low $3,983 — breakdown ke bawah membuka target $3,955. Zona resistance bounce teridentifikasi di $4,030-4,033. Zona support $3,982-3,985 selaras dengan buy area. Referensi risiko ketat di $3,973.
+Bias bearish terbatas dengan potensi bullish jika price bertahan di atas SMA20. Resistance di $4,203 (Fib 61.8%). Support di $4,097 (Fib 78.6%). Level invalidasi bullish di atas $4,221.
+
+**Waiting, Sell Area 4,200 - 4,210**
+✷ Take Profit 1 : 4,190
+✷ Take Profit 2 : 4,180
+✷ Take Profit 3 : 4,150
+✷ Take Profit 4 : 4,100
+✷ Stop Loss : 4,221
+
+**Waiting, Buy Area 4,085 - 4,095**
+✷ Take Profit 1 : 4,105
+✷ Take Profit 2 : 4,115
+✷ Take Profit 3 : 4,145
+✷ Take Profit 4 : 4,195
+✷ Stop Loss : 4,075
 
 ```
-XAUUSD, 1 July 2026
-✷ A1 : Waiting Order
+PROTECT YOUR CAPITAL, MANAGE YOUR RISK, USE SL, AIM FOR REALISTIC TP
 ```
 
-### Trade Update Format
+### Footer Code Block (Closes the Analysis)
 
-**XAUUSD Live Trade Update**
-
+Satu code block di paling akhir, tanpa header:
 ```
-Entry Sell M15 : Running
-✷ Entry : X,XXX - X,XXX Hit
-✷ TP1 : X,XXX Running
-✷ TP2 : X,XXX Running
-✷ TP3 : X,XXX
-✷ TP4 : X,XXX
-✷ SL : X,XXX Safe
+PROTECT YOUR CAPITAL, MANAGE YOUR RISK, USE SL, AIM FOR REALISTIC TP
 ```
 
-**Update at HH:MM WIB :**
-[price update, distance to TP/SL]
-
-### History Data Labels
-
-- `TP4 : 1000 Pips` = TP1 to TP4 all hit
-- `TP3 : 500 Pips` = TP3 hit
-- `TP2 : 200 Pips` = TP2 hit
-- `TP1 : 100 Pips` = only TP1 hit
-- `SL` = Stop loss hit directly
-- `Running` = entry hit, position still open
-- `Waiting Order` = entry not yet triggered
-
-### History Data Format (Code Block)
-
-- No title header — code block appears directly after Assistant Intraday Outlook
-- First line: `XAUUSD, DD MONTH YYYY`
-- Second line: `✷ A[N] : [result]` where N = analyst number (berlanjut antar hari)
-- A1 = Analysis 1, A2 = Analysis 2, A3 = Analysis 3...
-- Jika A1 ke order hari ini, besoknya A2 (bukan A1 lagi)
-- Jika A1 TIDAK ke order, besoknya tetap A1
-- Only show current day's data
-- Waiting Order MUST still be shown
-- If only Waiting Order exists, History Data section MUST still appear
+- Ini adalah satu-satunya code block di luar technical table
+- Tidak ada tanggal, tidak ada analyst number, tidak ada history data
+- Wajib muncul di SETIAP analysis, tanpa terkecuali
 
 ### RR Ratio (M15 Only)
 
@@ -216,12 +189,13 @@ TP4 = Mid ± 1000 pips
 ### Markdown Rules
 
 - **ALL titles** and **section titles** use bold markdown `** **`
-- **Technical table** and **History Data** use code block ` ``` `
-- **Fundamental** — news links embedded in text using `[text](link)`
-- **Waiting, Sell/Buy Area** — plain text, DO NOT put in code block. Use ✷ for SELL, ✧ for BUY
+- **Technical table** uses code block ` ``` `
+- **Fundamental** — news links embedded in text using `[text](link)`, minimal 3-4 links
+- **Entry Area** — bold title line (Waiting, Sell Area / Waiting, Buy Area + range), plain text TP/SL lines with ✷ prefix
 - **Assistant Intraday Outlook** — plain text
-- **History Data** — code block directly, NO title header before it
+- **Code block footer** — ` ``` ` at the very end with `PROTECT YOUR CAPITAL, MANAGE YOUR RISK, USE SL, AIM FOR REALISTIC TP` inside
 - **NO blank line** between technical table code block closing ``` and RSI line
+- **NO history data code block** — footer code block replaces it entirely
 
 ### Assistant Intraday Outlook Language Rules
 
@@ -246,12 +220,14 @@ The Outlook must remain neutral, observational, and descriptive. It describes wh
 - Descriptive momentum: "recovering from oversold", "consolidating near"
 - NEVER mention entry, execution, or position management
 
-### Title Format
+### Title Format — FINAL (Confirmed by icibos 3 Jul 2026)
 
-- **XAUUSD - $PRICE Live Analyst[N]** (bold) — N berlanjut antar hari
-- **DATE, TIME WIB** (bold second line)
-- Date format: DD MONTH YYYY, 24HR WIB
-- Analysis number increments: Analyst1, Analyst2, Analyst3, etc. (berlanjut, tidak reset per hari)
+Two-line title:
+- Line 1 (BOLD): **XAUUSD Research and Analysis**
+- Line 2 (PLAIN TEXT, NO BOLD): $PRICE : DD/MM/YY, HH:MM WIB (e.g. $4,178 : 03/07/26, 13:15 WIB)
+- Date format: DD/MM/YY with leading zeros (03/07/26 for 3 July 2026)
+- NO "Live Analyst[N]" in title
+- Analysis number tracking internal only, not displayed in public title
 
 ### Fundamental Section
 
@@ -271,14 +247,35 @@ The Outlook must remain neutral, observational, and descriptive. It describes wh
 - Volume analysis
 - Astronacci/Elliott Wave structure context
 
-### Entry Area
+### Entry Area — FINAL FORMAT (icibos 3 Jul 2026)
 
+Format:
+- Line 1 (BOLD): **Waiting, Sell Area [RANGE]** — bold covers title + range
+- Line 2-6 (PLAIN TEXT): TP1-TP4 and SL, each prefixed with ✷
+- ✷ digunakan untuk SELL dan BUY SAMA (tidak ada ✧ lagi)
+- Huruf kapital pada Take Profit / Stop Loss: `✷ Take Profit 1 : X,XXX`
+
+**Waiting, Sell Area 4,030 - 4,033**
+✷ Take Profit 1 : 4,021
+✷ Take Profit 2 : 4,011
+✷ Take Profit 3 : 3,981
+✷ Take Profit 4 : 3,931
+✷ Stop Loss : 4,041
+
+**Waiting, Buy Area 3,982 - 3,985**
+✷ Take Profit 1 : 3,993
+✷ Take Profit 2 : 4,003
+✷ Take Profit 3 : 4,033
+✷ Take Profit 4 : 4,083
+✷ Stop Loss : 3,973
+
+Rules:
 - Entry range: 30 pips
 - SL: 100 pips from mid entry (DO NOT change regardless of volatility)
 - TP1: 100 (1:1), TP2: 200 (1:2), TP3: 500 (1:5), TP4: 1000 (1:10)
-- Find nearest support/resistance zones from current price
 - Mid entry = (entry_low + entry_high) / 2
 - Never widen SL or compress TP. These are fixed risk parameters.
+- ✷ untuk BOTH sell and buy (no ✧ anymore)
 
 ### Price Movement Analysis
 

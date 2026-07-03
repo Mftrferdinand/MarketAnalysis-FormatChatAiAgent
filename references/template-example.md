@@ -1,152 +1,63 @@
-# Template Example — XAUUSD Full Analysis
+# Template Example — MarketAnalysis Final Format
 
-Below is a complete example of the output format. Every analysis MUST follow this structure exactly.
+## Section Order (FINAL)
 
-This is the FINAL format — markdown with bold titles, code blocks for table and history, embedded links, ✷/✧ symbols for entries.
+Title → Fundamental → Technical → RSI/Volume → Price Movement → Assistant Intraday Outlook → Waiting Sell Area → Waiting Buy Area → Footer code block
 
----
+## Full Example
 
-**XAUUSD - $3,985 Live Analyst1**
-**1 July 2026, 09:52 WIB**
+**XAUUSD Research and Analysis**
+$4,178 : 03/07/26, 13:15 WIB
 
 **Fundamental Economic Global**
-Gold dropped to $3,985 after failing to hold above $4,000. [The Fed hawkish stance](https://news.google.com/articles/...) remains the main pressure.
+Emas melanjutkan reli ke $4,178 setelah data [NFP AS yang lemah](https://news.google.com/articles/link1) di 114K vs 172K ekspektasi, melemahkan dolar. [Fed Chair Warsh](https://news.google.com/articles/link2) mengindikasikan risiko inflasi telah mereda, narasi dovish menguat. [ISM Manufacturing](https://news.google.com/articles/link3) melunak ke 53.8 dan [gold acceptance di atas $4,000](https://news.google.com/articles/link4) setelah data lemah.
 
 **Technical Market Analysis**
-Price $3,985 below SMA20 ($4,221) and Fib 78.6% ($4,097) — bearish.
+Price $4,178 tepat di atas SMA20 ($4,171) — menguji resistance dinamis.
 
 ```
 Level                    Price
-Swing High 30d           $4,591
-SMA20                    $4,221
+Swing High 30d           $4,510
+SMA20                    $4,171
+Current Price            $4,178
+Fib 61.8%                $4,203
 Fib 78.6%                $4,097
-Current Price            $3,985
-Swing Low 30d            $3,955
-BB Lower                 $3,906
+Swing Low 30d            $3,962
+BB Lower                 $3,932
 ```
-RSI 36.5 — Bearish
-Volume — Normal
+RSI 42.0 — area netral, meninggalkan zona oversold, momentum pemulihan masih berlanjut
+Volume — lonjakan di sesi NFP menandakan partisipasi pasar tinggi, konfirmasi validitas breakout
 
 **Price Movement Analysis**
-Price dropped from $4,047 to $3,985 — failed to hold above $4,000. Astronacci Wave 3 down, currently testing intraday swing low at $3,983. If it breaks, target $3,955 (Wave 5). Potential bounce to $4,030 if it holds.
-
-**Waiting, Sell Area**
-✷ ENTRY SELL : 4,030 - 4,033
-✷ TAKE PROFIT 1 : 4,021
-✷ TAKE PROFIT 2 : 4,011
-✷ TAKE PROFIT 3 : 3,981
-✷ TAKE PROFIT 4 : 3,931
-✷ STOP LOSS : 4,041
-
-**Waiting, Buy Area**
-✧ ENTRY BUY : 3,982 - 3,985
-✧ TAKE PROFIT 1 : 3,993
-✧ TAKE PROFIT 2 : 4,003
-✧ TAKE PROFIT 3 : 4,033
-✧ TAKE PROFIT 4 : 4,083
-✧ STOP LOSS : 3,973
+Harga rebound dari $4,062 ke $4,178 setelah NFP yang lemah. Astronacci Wave 4 corrective berpotensi lanjut ke Fib 61.8% jika momentum bertahan. Support intraday $4,130.
 
 **Assistant Intraday Outlook**
-Bearish dominant. Price at swing low $3,983 — if it breaks, target $3,955. Sell bounce to $4,030-4,033. Buy support zone $3,982-3,985 for scalping, tight SL $3,973.
+Bias bearish terbatas dengan potensi bullish jika price bertahan di atas SMA20. Resistance di $4,203 (Fib 61.8%). Support di $4,097 (Fib 78.6%). Level invalidasi bullish di atas $4,221.
+
+**Waiting, Sell Area 4,200 - 4,210**
+✷ Take Profit 1 : 4,190
+✷ Take Profit 2 : 4,180
+✷ Take Profit 3 : 4,150
+✷ Take Profit 4 : 4,100
+✷ Stop Loss : 4,221
+
+**Waiting, Buy Area 4,085 - 4,095**
+✷ Take Profit 1 : 4,105
+✷ Take Profit 2 : 4,115
+✷ Take Profit 3 : 4,145
+✷ Take Profit 4 : 4,195
+✷ Stop Loss : 4,075
 
 ```
-XAUUSD, 1 July 2026
-✷ A1 : Waiting Order
+PROTECT YOUR CAPITAL, MANAGE YOUR RISK, USE SL, AIM FOR REALISTIC TP
 ```
 
----
+## Key Rules
 
-## Analyst Numbering Example
-
-Analyst number berlanjut antar hari, hanya naik jika order KE ENTRY:
-
-Day 1 (29 June):
-```
-XAUUSD, 29 June 2026
-✷ A1 : Waiting Order
-```
-
-Day 1 (29 June, analysis 2 — user requested):
-```
-XAUUSD, 29 June 2026
-✷ A1 : TP2 : 200 Pips
-✷ A2 : Waiting Order
-```
-
-Day 2 (30 June — A1 hit order, A2 not hit):
-```
-XAUUSD, 30 June 2026
-✷ A3 : Waiting Order
-```
-(A2 tidak ke entry → number tidak naik untuk A2, tapi A1 ke entry → A3 adalah analysis berikutnya)
-
-Day 3 (1 July — A3 hit order):
-```
-XAUUSD, 1 July 2026
-✷ A4 : Waiting Order
-```
-
-Day 4 (2 July — A4 NOT hit):
-```
-XAUUSD, 2 July 2026
-✷ A4 : Waiting Order
-```
-(A4 tidak ke entry → number tetap A4, bukan A5)
-
-Day 5 (3 July — A4 hit order):
-```
-XAUUSD, 3 July 2026
-✷ A5 : Waiting Order
-```
-
-## Trade Update Example
-
-**XAUUSD Live Trade Update**
-
-```
-Entry Sell M15 : Running
-✷ Entry : 4,030 - 4,033 Hit
-✷ TP1 : 4,021 Hit
-✷ TP2 : 4,011 Running
-✷ TP3 : 3,981
-✷ TP4 : 3,931
-✷ SL : 4,041 Safe
-```
-
-**Update at 11:30 WIB :**
-Price at $4,015 — TP1 hit, TP2 at $4,011 is 4 pips away. SL at $4,041 is safe (26 pips above).
-
-## Entry with Running Position Example
-
-When there are active running positions, the output includes BOTH running area and waiting area:
-
-**Mirroring Running Area**
-```
-Entry Sell M15 : Running
-✷ Entry : 4,030 - 4,033 Hit
-✷ TP1 : 4,021 Hit
-✷ TP2 : 4,011 Running
-✷ TP3 : 3,981
-✷ TP4 : 3,931
-✷ SL : 4,041 Safe
-```
-
-**Mirroring Waiting Area**
-✷ ENTRY SELL : 4,120 - 4,123
-✷ TAKE PROFIT 1 : 4,110
-✷ TAKE PROFIT 2 : 4,100
-✷ TAKE PROFIT 3 : 4,070
-✷ TAKE PROFIT 4 : 4,020
-✷ STOP LOSS : 4,133
-
-## History Data Labels
-
-| Label | Meaning |
-|---|---|
-| TP4 : 1000 Pips | TP1 to TP4 all hit |
-| TP3 : 500 Pips | TP3 hit |
-| TP2 : 200 Pips | TP2 hit |
-| TP1 : 100 Pips | Only TP1 hit |
-| SL | Stop loss hit directly |
-| Running | Entry hit, position still open |
-| Waiting Order | Entry not yet triggered |
+- Title: Line 1 bold, Line 2 plain text
+- Fundamental: min 3-4 embedded links
+- RSI + Volume: 1 line each, directly below code block
+- Outlook ABOVE Waiting Areas
+- Entry Area title bold with range, TP/SL lines plain with ✷
+- Footer code block only — no history data, no date, no analyst number
+- ✷ for both Sell and Buy (no ✧)

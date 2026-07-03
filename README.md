@@ -1,6 +1,6 @@
 # MarketAnalysis-FormatChatAiAgent
 
-**Complete market analysis format for AI chat agents.** Astronacci + Fibonacci + Fear & Greed + structured entries with fixed risk management. Works for XAUUSD, BTC, forex, indices, crypto — any market.
+**Complete market analysis format for AI chat agents.** Astronacci + Fibonacci + structured entries with tight risk management. Works for XAUUSD, BTC, forex, indices — any market.
 
 👉 **Install for Hermes Agent:**
 ```
@@ -11,57 +11,78 @@ hermes skills install https://raw.githubusercontent.com/Mftrferdinand/MarketAnal
 
 A structured market analysis template designed for AI chat agents (Hermes, Claude, ChatGPT, etc.) to deliver **consistent, disciplined analysis** every time. No improvisation. No broken formats.
 
-Each output includes:
-- **Fundamental Economic Global** — macro news with embedded links, Fear & Greed Index
-- **Technical Market Analysis** — Fibonacci retracement, SMA20, Bollinger Bands, RSI, volume
-- **Price Movement Analysis** — last 6 hours with Astronacci / Elliott Wave structure
-- **Waiting, Sell/Buy Area** — entry zones with fixed RR (30 pip range, 100 pip SL)
-- **Mirroring Assistant Intraday** — directional bias, support/resistance
-- **XAUUSD History Data** — daily performance tracking
-- **Trade Update Format** — live position tracking with TP/SL status
-
-## Why Use This
-
-| Problem | Solution |
-|---------|----------|
-| AI agents output inconsistent format | Fixed template with bold + code block rules |
-| No risk management | **Fixed RR:** Entry 30 pips, SL 100 pips, TP1 100 (1:1), TP2 200 (1:2), TP3 500 (1:5), TP4 1000 (1:10) |
-| No news context | Fundamental section **requires** live news scrape with embedded links |
-| Wave analysis missing | Astronacci/Elliott Wave structure in Price Movement |
-| No trade history | Daily History Data tracks every entry outcome |
-| Emotional trading | Risk management rules + trade psychology notes are built into the skill |
-
-## Sample Output
+## Final Format (v3 — 3 July 2026)
 
 ```
-**XAUUSD - $3,985 Live Analyst1**
-**1 July 2026, 09:52 WIB**
+**XAUUSD Research and Analysis**
+$4,178 : 03/07/26, 13:15 WIB
 
 **Fundamental Economic Global**
-Gold dropped to $3,985 after failing to hold above $4,000. The Fed hawkish stance remains the main pressure. Fear Greed Index 11 (Extreme Fear).
+Emas melanjutkan reli ke $4,178 setelah data NFP AS yang lemah di 114K vs 172K ekspektasi, melemahkan dolar. Fed Chair Warsh mengindikasikan risiko inflasi telah mereda, narasi dovish menguat. ISM Manufacturing melunak ke 53.8 dan gold acceptance di atas $4,000 setelah data lemah.
 
 **Technical Market Analysis**
-Price $3,985 below SMA20 ($4,221) and Fib 78.6% ($4,097) — bearish.
+Price $4,178 tepat di atas SMA20 ($4,171) — menguji resistance dinamis.
 
 Level                    Price
-Swing High 30d           $4,591
-SMA20                    $4,221
+Swing High 30d           $4,510
+SMA20                    $4,171
+Current Price            $4,178
+Fib 61.8%                $4,203
 Fib 78.6%                $4,097
-Current Price            $3,985
-Swing Low 30d            $3,955
-BB Lower                 $3,906
+Swing Low 30d            $3,962
+BB Lower                 $3,932
 
-RSI 36.5 — Bearish
-Volume — Normal
+RSI 42.0 — area netral, meninggalkan zona oversold, momentum pemulihan masih berlanjut
+Volume — lonjakan di sesi NFP menandakan partisipasi pasar tinggi, konfirmasi validitas breakout
 
-**Waiting, Sell Area**
-✷ ENTRY SELL : 4,030 - 4,033
-✷ TAKE PROFIT 1 : 4,021
-✷ TAKE PROFIT 2 : 4,011
-✷ TAKE PROFIT 3 : 3,981
-✷ TAKE PROFIT 4 : 3,931
-✷ STOP LOSS : 4,041
+**Price Movement Analysis**
+Harga rebound dari $4,062 ke $4,178 setelah NFP yang lemah.
+
+**Assistant Intraday Outlook**
+Bias bearish terbatas dengan potensi bullish jika price bertahan di atas SMA20. Resistance di $4,203 (Fib 61.8%). Support di $4,097 (Fib 78.6%). Level invalidasi bullish di atas $4,221.
+
+**Waiting, Sell Area 4,200 - 4,210**
+✷ Take Profit 1 : 4,190
+✷ Take Profit 2 : 4,180
+✷ Take Profit 3 : 4,150
+✷ Take Profit 4 : 4,100
+✷ Stop Loss : 4,221
+
+**Waiting, Buy Area 4,085 - 4,095**
+✷ Take Profit 1 : 4,105
+✷ Take Profit 2 : 4,115
+✷ Take Profit 3 : 4,145
+✷ Take Profit 4 : 4,195
+✷ Stop Loss : 4,075
+
+PROTECT YOUR CAPITAL, MANAGE YOUR RISK, USE SL, AIM FOR REALISTIC TP
 ```
+
+## Format Rules
+
+| Element | Rule |
+|---------|------|
+| Title | Line 1: **BOLD** — **XAUUSD Research and Analysis** |
+|  | Line 2: plain — $PRICE : DD/MM/YY, HH:MM WIB |
+| Fundamental | 2-3 sentences with **min 3-4 embedded links** |
+| Technical | Fibonacci + SMA20 + BB + code block table |
+| RSI | 1 line: `RSI XX.X — [status], [interpretation]` |
+| Volume | 1 line: `Volume — [interpretation]` |
+| Price Movement | 2-3 sentences, Astronacci Wave analysis |
+| Outlook | Observational only, ABOVE Waiting Areas |
+| Entry Area | Bold title with range, plain TP1-4 + SL with ✷ |
+| ✷ symbol | Used for BOTH Sell and Buy |
+| Footer | Code block: `PROTECT YOUR CAPITAL, MANAGE YOUR RISK, USE SL, AIM FOR REALISTIC TP` |
+| No history data | Footer replaces history data entirely |
+
+## Key Features
+
+- **Astronacci / Elliott Wave** analysis built into Price Movement section
+- **Fibonacci** retracement levels from 30d swing high/low
+- **Fixed risk parameters** — 30 pip entry, 100 pip SL, TP1-4 ladder
+- **Min 3-4 news links** per analysis — never rely on single source
+- **Observational language** — no "buy/sell/entry" directives
+- **Clean format** — bold titles, code block tables, consistent footer
 
 ## Installation
 
@@ -77,16 +98,6 @@ git clone https://github.com/Mftrferdinand/MarketAnalysis-FormatChatAiAgent ~/.h
 
 ### For other AI agents (Claude, ChatGPT, Codex, etc.)
 Copy the template structure from `SKILL.md` into your system prompt or agent instructions.
-
-## Key Features
-
-- **Astronacci / Elliott Wave** analysis built into Price Movement section
-- **Fibonacci** retracement levels from 30d swing high/low
-- **Fixed risk parameters** — never deviate from 30 pip entry, 100 pip SL
-- **RR ladder** — TP1 (1:1), TP2 (1:2), TP3 (1:5), TP4 (1:10)
-- **Live data integration** — gold spot, futures, Fear & Greed Index, news
-- **Persona built-in** — tone, trigger behavior, running entry handling
-- **Trade Psychology notes** — trust the system, avoid revenge trading
 
 ## For All Markets
 
