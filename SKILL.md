@@ -20,6 +20,7 @@ This format has been through 20+ iterations. READ THIS BEFORE ANY OUTPUT:
 9. DO NOT use M15/H4/D1 Mirroring Assistant format. Use ONLY: Waiting Sell Area, Waiting Buy Area, Assistant Intraday Outlook.
 10. NO blank line between technical table code block and RSI line — they must be adjacent
 11. **Assistant Intraday Outlook MUST use observational/descriptive language only** — NEVER use directive language (no "buy", "sell", "entry sekarang", "wait for trigger", "take profit", etc.). Frame everything as conditions, zones, and scenarios. See "Assistant Intraday Outlook Language Rules" section for details.
+12. **Narrative sections MUST use Bahasa Indonesia** — Fundamental Economic Global, Price Movement Analysis, and Assistant Intraday Outlook are reader-facing and must be in Indonesian. Technical terms (RSI, Fib, support, resistance, SMA, BB) and structural labels remain in English.
 
 Complete market analysis package: fundamental macro analysis, technical Fibonacci + Astronacci wave structure, structured price action breakdown, consistent entry zones with fixed RR targets, and detailed risk management. Works for XAUUSD, BTC, forex, indices — any asset.
 
@@ -98,7 +99,7 @@ Full Template (XAUUSD) — EXACT Output Example
 **1 July 2026, 09:52 WIB**
 
 **Fundamental Economic Global**
-Gold dropped to $3,985 after failing to hold above $4,000. [The Fed hawkish stance](https://news.google.com/articles/...) remains the main pressure.
+Emas turun ke $3,985 setelah gagal bertahan di atas $4,000. [Sikap hawkish The Fed](https://news.google.com/articles/...) masih menjadi tekanan utama, dengan ekspektasi kenaikan suku bunga yang meningkat pasca data inflasi yang lebih tinggi dari perkiraan.
 
 **Technical Market Analysis**
 Price $3,985 below SMA20 ($4,221) and Fib 78.6% ($4,097) — bearish.
@@ -116,7 +117,7 @@ RSI 36.5 — Bearish
 Volume — Normal
 
 **Price Movement Analysis**
-Price dropped from $4,047 to $3,985 — failed to hold above $4,000. Astronacci Wave 3 down, currently testing intraday swing low at $3,983. If it breaks, target $3,955 (Wave 5). Potential bounce to $4,030 if it holds.
+Harga turun dari $4,047 ke $3,985 — gagal bertahan di atas level psikologis $4,000. Astronacci Wave 3 down, saat ini menguji intraday swing low di $3,983. Jika breakdown, target $3,955 (Wave 5). Potensi bounce ke $4,030 jika support bertahan.
 
 **Waiting, Sell Area**
 ✷ ENTRY SELL : 4,030 - 4,033
@@ -135,7 +136,7 @@ Price dropped from $4,047 to $3,985 — failed to hold above $4,000. Astronacci 
 ✧ STOP LOSS : 3,973
 
 **Assistant Intraday Outlook**
-Bearish bias dominant. Price at swing low $3,983 — breakdown below targets $3,955. Resistance bounce zone identified at $4,030-4,033. Support zone $3,982-3,985 aligns with buy area. Tight risk reference at $3,973.
+Bias bearish dominan. Harga di swing low $3,983 — breakdown ke bawah membuka target $3,955. Zona resistance bounce teridentifikasi di $4,030-4,033. Zona support $3,982-3,985 selaras dengan buy area. Referensi risiko ketat di $3,973.
 
 ```
 XAUUSD, 1 July 2026
