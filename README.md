@@ -18,10 +18,10 @@ A structured market analysis template designed for AI chat agents (Hermes, Claud
 $4,178 : 03/07/26, 13:15 WIB
 
 **Fundamental Economic Global**
-Emas melanjutkan reli ke $4,178 setelah data NFP AS yang lemah di 114K vs 172K ekspektasi, melemahkan dolar. Fed Chair Warsh mengindikasikan risiko inflasi telah mereda, narasi dovish menguat. ISM Manufacturing melunak ke 53.8 dan gold acceptance di atas $4,000 setelah data lemah.
+|Gold continues its rally to $4,178 after weak US NFP data at 114K vs 172K expected, weakening the dollar. Fed Chair Warsh indicated inflation risks have eased, dovish narrative strengthening. ISM Manufacturing softened to 53.8 and gold acceptance above $4,000 after weak data.
 
 **Technical Market Analysis**
-Price $4,178 tepat di atas SMA20 ($4,171) — menguji resistance dinamis.
+Price $4,178 sits right above SMA20 ($4,171) — testing dynamic resistance.
 
 Level                    Price
 Swing High 30d           $4,510
@@ -32,14 +32,14 @@ Fib 78.6%                $4,097
 Swing Low 30d            $3,962
 BB Lower                 $3,932
 
-RSI 42.0 — area netral, meninggalkan zona oversold, momentum pemulihan masih berlanjut
-Volume — lonjakan di sesi NFP menandakan partisipasi pasar tinggi, konfirmasi validitas breakout
+RSI 42.0 — neutral area, leaving oversold zone, recovery momentum continues
+Volume — spike in NFP session indicates high market participation, confirming breakout validity
 
 **Price Movement Analysis**
-Harga rebound dari $4,062 ke $4,178 setelah NFP yang lemah.
+Price rebounded from $4,062 to $4,178 after weak NFP data.
 
 **Assistant Intraday Outlook**
-Bias bearish terbatas dengan potensi bullish jika price bertahan di atas SMA20. Resistance di $4,203 (Fib 61.8%). Support di $4,097 (Fib 78.6%). Level invalidasi bullish di atas $4,221.
+Limited bearish bias with bullish potential if price holds above SMA20. Resistance at $4,203 (Fib 61.8%). Support at $4,097 (Fib 78.6%). Bullish invalidation level above $4,221.
 
 **Waiting, Sell Area 4,200 - 4,210**
 ✷ Take Profit 1 : 4,190
